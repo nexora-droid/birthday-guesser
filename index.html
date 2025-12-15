@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Guesser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Birthday Guesser</h1>
+        <p class="subtitle">Perform basic calculations and let the magical world of maths guess your birthday!</p>
+        <div class="step-container" id="stepContainer">
+            <div class="step-active" data-step="0">
+                <div class="step-text">
+                    Welcome! I can guess your birthday using math!
+                    <br><br>
+                    Think of your birth month and date, and carefully follow my instructions. Okay?
+                    <br><br>
+                    Ready to be amazed?
+                </div>
+                <button class="btn" onclick="nextStep()">Let's begin!</button>
+            </div>
+            <div class="step" data-step="1">
+                <div class="step-text">
+                    <span class="step-number">1</span>
+                    Multiply your birth month by 5
+                    <br><br>
+                    <small>I.e. If it is November then 11 * 5 = 55. If you need a calculator use the one in the bottom corner!</small>
+                </div>
+                <button class="btn" onclick="nextStep()">Done</button>
+            </div>
+            <div class="step" data-step="2">
+                <div class="step-text">
+                    <span class="step-number">2</span>
+                    Add 6 to the result
+                    <br><br>
+                    <small>55 + 6 = 61</small>
+                </div>
+                <button class="btn" onclick="nextStep()">Done</button>
+            </div>
+            <div class="step" data-step="3">
+                <div class="step-text">
+                    <span class="step-number">3</span>
+                    Multiply by 4
+                    <br><br>
+                    <small>61 * 4 = 244</small>
+                </div>
+                <button class="btn" onclick="nextStep()">Done</button>
+            </div>
+            <div class="step" data-step="4">
+                <div class="step-text">
+                    <span class="step-number">4</span>
+                    Add 9 to your result
+                    <br><br>
+                    <small>244 + 9 = 253</small>
+                </div>
+                <button class="btn" onclick="nextStep()">Done</button>
+            </div>
+            <div class="step" data-step="5">
+                <div class="step-text">
+                    <span class="step-number">5</span>
+                    Multiply your result by 5
+                    <br><br>
+                    <small>253 * 5 = 1265</small>
+                </div>
+                <button class="btn" onclick="nextStep()">Done</button>
+            </div>
+            <div class="step" data-step="6">
+                <div class="step-text">
+                    <span class="step-number">6</span>
+                    Add the day you were born to your result!
+                    <br><br>
+                    <small>1265 + 29 = 1294 </small>
+                </div>
+            </div>
+            <div class="step" data-step="7">
+                <div class="step-text">
+                    <span class="step-number">7</span>
+                    Now tell me the final number:
+                </div>
+                <input type="number" id="finalNumber" placeholder="Enter the number you got after all these calculations">
+                <btn class="btn" onclick="revealBirthday()">Reveal my Birthday!</btn>
+            </div>
+            <div class="step" data-step="8">
+                <div class="result" id="result"></div>
+                <button class="btn" onclick="restart()">Try Again</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
