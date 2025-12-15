@@ -74,6 +74,7 @@
                     <br><br>
                     <small>1265 + 29 = 1294 </small>
                 </div>
+                <button class="btn" onclick="nextStep()">Done</button>
             </div>
             <div class="step" data-step="7">
                 <div class="step-text">
@@ -89,35 +90,35 @@
             </div>
         </div>
     </div>
-    <button class="calc-toggle" onclick="toggleCalculator()">&times;</button>
+    <button class="calc-toggle" onclick="toggleCalculator()">&plus;</button>
     <div class="calculator" id="calculator">
         <div class="calc-header">
             <span class="calc-title">Calculator</span>
-            <button class="calc-close" onclick="toggleCalculator()">$times;</button>
+            <button class="calc-close" onclick="toggleCalculator()">&times;</button>
         </div>
         <div class="calc-display" id="calcDisplay">0</div>
         <div class="calc-buttons">
-            <button class="calc-button" onclick="appendNumber(7)">7</button>
-            <button class="calc-button" onclick="appendNumber(7)">8</button>
-            <button class="calc-button" onclick="appendNumber(7)">9</button>
-            <button class="calc-button operator" onclick="setOperator('÷')">/</button>
+            <button class="calc-btn" onclick="appendNumber('7')">7</button>
+            <button class="calc-btn" onclick="appendNumber('8')">8</button>
+            <button class="calc-btn" onclick="appendNumber('9')">9</button>
+            <button class="calc-btn operator" onclick="setOperator('÷')">/</button>
 
-            <button class="calc-button" onclick="appendNumber(7)">4</button>
-            <button class="calc-button" onclick="appendNumber(7)">5</button>
-            <button class="calc-button" onclick="appendNumber(7)">6</button>
-            <button class="calc-button operator" onclick="setOperator('×')">*</button>
+            <button class="calc-btn" onclick="appendNumber('4')">4</button>
+            <button class="calc-btn" onclick="appendNumber('5')">5</button>
+            <button class="calc-btn" onclick="appendNumber('6')">6</button>
+            <button class="calc-btn operator" onclick="setOperator('×')">*</button>
 
-            <button class="calc-button" onclick="appendNumber(7)">1</button>
-            <button class="calc-button" onclick="appendNumber(7)">2</button>
-            <button class="calc-button" onclick="appendNumber(7)">3</button>
-            <button class="calc-button operator" onclick="setOperator('-')">-</button>
+            <button class="calc-btn" onclick="appendNumber('1')">1</button>
+            <button class="calc-btn" onclick="appendNumber('2')">2</button>
+            <button class="calc-btn" onclick="appendNumber('3')">3</button>
+            <button class="calc-btn operator" onclick="setOperator('-')">-</button>
 
-            <button class="calc-button" onclick="appendNumber(7)">0</button>
-            <button class="calc-button" onclick="appendNumber(7)">.</button>
-            <button class="calc-button operator" onclick="setOperator('+')">+</button>
-            <button class="calc-button clear" onclick="clearCalc()">C</button>
+            <button class="calc-btn" onclick="appendNumber('0')">0</button>
+            <button class="calc-btn" onclick="appendNumber('.')">.</button>
+            <button class="calc-btn operator" onclick="setOperator('+')">+</button>
+            <button class="calc-btn clear" onclick="clearCalc()">C</button>
 
-            <button class="calc-button equals" onclick="calculate()">=</button>
+            <button class="calc-btn equals" onclick="calculate()">=</button>
 
         </div>
     </div>

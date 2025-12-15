@@ -17,8 +17,8 @@ function nextStep(){
     }
 }
 function revealBirthday(){
-    const finalNum = parseInt(document.getElementById('final-number'));
-    if (!finalNum || isNan(finalNum)){
+    const finalNum = parseInt(document.getElementById('finalNumber').value);
+    if (!finalNum || isNaN(finalNum)){
         alert('Please enter a dammned valid number!! YOUR BIRTHDAY ISNT LETTER~~ SHUT UP DON.... my bad fellow human, Don here has bad temper, please enter a valid number!')
         return;
     }
@@ -26,7 +26,7 @@ function revealBirthday(){
     const month = Math.floor(result/100)
     const day = result % 100
 
-    const months = ['', 'January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    const months = ['', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     if (month < 1 || month > 12 || day < 1 || day > 31){
         document.getElementById('result').innerHTML = `
         <div class="birthday-card">
@@ -46,7 +46,7 @@ function revealBirthday(){
 } 
 function restart(){
     currentStep = 0;
-    document.getElementById('final-number').value = '';
+    document.getElementById('finalNumber').value = '';
     const steps = document.querySelectorAll('.step');
     steps.forEach(step => step.classList.remove('active'));
     steps[0].classList.add('active');
@@ -66,7 +66,7 @@ function appendNumber(num){
     }
     updateDisplay()
 }
-function setOperator(){
+function setOperator(op){
     if (calcPrevious !== null && calcOperator !== null){
         calculate();
     }
@@ -80,16 +80,16 @@ function calculate(){
     let result;
     switch (calcOperator){
         case '+':
-            result = calcPrevious + calcCurrent;
+            result = calcPrevious + current;
             break;
         case '-':
-            result = calcPrevious - calcCurrent;
+            result = calcPrevious - current;
             break;
         case '×':
-            result = calcPrevious * calcCurrent;
+            result = calcPrevious * current;
             break;
         case '÷':
-            result = calcPrevious / calcCurrent;
+            result = calcPrevious / current;
             break;
     }
     calcCurrent = result.toString();
@@ -105,8 +105,8 @@ function clearCalc(){
 }
 function toggleTheme(){
     document.body.classList.toggle('light-mode');
-    const btn = document.getElementById('.theme-toggle');
-    btn.textContent = document.body.classList.contains('light-mode');
+    const btn = document.querySelector('.theme-toggle');
+    btn.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
 }
 const calculator = document.getElementById('calculator');
 calculator.addEventListener('mousedown', startDrag);
@@ -115,7 +115,7 @@ calculator.addEventListener('touchstart', startDrag);
 function startDrag(e){
     if (e.target.closest('.calc-btn') || e.target.closest('.calc-close')) return;
     isDragging = true;
-    const rect = calculator.getBoundignClientRect();
+    const rect = calculator.getBoundingClientRect();
 
     if (e.type === 'mousedown'){
         dragOffsetX = e.clientX - rect.left;
@@ -140,10 +140,10 @@ function drag(e){
         clientY = e.touches[0].clientY;
     }
     calculator.style.left = (clientX - dragOffsetX) + 'px';
-    calculator.style.top = (clientX - dragOffsetY) + 'px';
-    calculator.style.right = auto;
+    calculator.style.top = (clientY - dragOffsetY) + 'px';
+    calculator.style.right = 'auto';
 }
-document.addEventListener('moseup', stopDrag)
+document.addEventListener('mouseup', stopDrag)
 document.addEventListener('touchend', stopDrag)
 function stopDrag(){
     isDragging = false;
